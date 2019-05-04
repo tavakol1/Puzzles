@@ -1,0 +1,38 @@
+function solution(A) { //Original solution. Faster Solution
+    var N = A.length;
+    var result = 0;
+    var i, j;
+    for (i = 0; i < N; i++)
+        for (j = 0; j < N; j++)
+            if (A[i] == A[j])
+                result = Math.max(result, Math.abs(i - j));
+    return result;
+}
+
+function solution1(A){ // My impelementaion of it.
+    const hashMap = {};
+
+    for(let i=0; i<A.length; i++){
+        if (!hashMap[A[i]]){
+            hashMap[A[i]] = new Array();
+        }
+        if(hashMap[A[i]][1]){
+            hashMap[A[i]][1] = i;
+        } else {
+            hashMap[A[i]].push(i);
+        }
+    }
+
+    let curMax = 0;
+    
+    for(const element in hashMap){
+        if(hashMap[element].length > 1){
+            curMax = Math.max(curMax,Math.abs(hashMap[element][0] - hashMap[element][1]));
+        }
+    }
+    return (curMax)
+}
+
+testArray1 = [1,2,3,1,5,1,3,2,2,2,2,2];
+
+console.log(solution1(testArray1));
