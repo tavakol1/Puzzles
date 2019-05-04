@@ -1,4 +1,4 @@
-Given an array of integers, If the numbers fluctuate in a way that they increase and decrease. Maximum length of turbulence in integers must be calculated. 
+// Given an array of integers, If the numbers fluctuate in a way that they increase and decrease. Maximum length of turbulence in integers must be calculated. 
 
 solution = (array) => {
     //Calculating turbulance.
